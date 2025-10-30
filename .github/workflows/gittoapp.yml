@@ -6,8 +6,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
-    workflow_dispatch:
+  workflow_dispatch:  # Correct: Top-level trigger
 
 permissions:
   contents: read
@@ -27,7 +26,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # Uploads entire repo root (index.html, css/, etc.)
+          path: .  # Uploads everything in repo root
 
       - name: Deploy to GitHub Pages
         id: deployment
